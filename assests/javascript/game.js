@@ -1,38 +1,65 @@
+//VARIABLES
+//wins
+var wins = 0;
+//losses
+var losses = 0;
+//current user value
+var userValue = 0;
+
+
 $(function () {
-//variables
-  //computer random number
-  var computerRandomNumber = Math.floor((Math.random() * 100) + 20);
-  //value for each click of crystal
-  $("img").each(function () {
-    $(this).attr("data-value", Math.floor((Math.random() * 11) + 1));
-  }); // END EACH FUNCTION
+	//computer random number
+	var computerRandomNumber = Math.floor((Math.random() * 100) + 20);
+	$("#computerRandom").html("Number to Guess: " + computerRandomNumber);
+
+	//value for each click of crystal
+	$("img").each(function () {
+		$(this).attr("data-value", Math.floor((Math.random() * 11) + 1));
+		console.log(this)
+	}); // END OF FUNCTION
+
+	//on click for userValue
+	$("img").on("click", function () {
+		userValue += parseInt($(this).attr("data-value"));
+		//display userValue
+		$("#userScore").html("Your Score: " + userValue);
+
+		if (userValue === computerRandomNumber) {
+			wins++;
+			$("#wins").html("Wins: " + wins);
+		}
+		if(userValue>computerRandomNumber){
+			losses++;
+		$("#losses").html("Losses: " + losses);
+
+		
+
+		}
+	});//END OF FUNCTION
 
 
-  //wins
-  var wins = 0;
-  //losses
-  var losses = 0;
-  //current user value
-  var userValue = 0;
 
-  $("img").on("click", function () {
-    userValue += parseInt($(this).attr("data-value"));
-    console.log(userValue);
-  });
+	//functions
+	//clicks on crystals
+	//adding up user value
+	//displaying user value
+	//reset defaults
 
-//loops
+	//conditionals
+	//if user value > computer value then lose
+
+	//if user value = computer value then win
 
 
 
-//functions
-  //clicks on crystals
-    //adding up user value
-    //displaying user value
-  //reset defaults
 
-//conditionals
-  //if user value > computer value then lose
-  //if user value = computer value then win
 
+
+
+	//if (result === randomNumber) {
+	// 	wins++;
+	// 	$("#win-lose").html("<h2>Winner!</h2>");
+	// 	$("#wins").html("<h3>" + wins + "</h3>");
+	// }
 
 }); // END READY
