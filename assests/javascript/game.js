@@ -6,14 +6,19 @@ var losses = 0;
 //current user value
 var userValue = 0;
 
+function reset (){
+	targetNumber();
+	crystalValue();
+}
 
-$(function () {
+
+$(function targetNumber() {
 	//computer random number
 	var computerRandomNumber = Math.floor((Math.random() * 100) + 20);
 	$("#computerRandom").html("Number to Guess: " + computerRandomNumber);
 
 	//value for each click of crystal
-	$("img").each(function () {
+	$("img").each(function crystalValue() {
 		$(this).attr("data-value", Math.floor((Math.random() * 11) + 1));
 		console.log(this)
 	}); // END OF FUNCTION
@@ -23,17 +28,19 @@ $(function () {
 		userValue += parseInt($(this).attr("data-value"));
 		//display userValue
 		$("#userScore").html("Your Score: " + userValue);
-
+		
+		//wins are update to html
 		if (userValue === computerRandomNumber) {
 			wins++;
 			$("#wins").html("Wins: " + wins);
+			reset();
 		}
+
+		//losses are update to html
 		if(userValue>computerRandomNumber){
 			losses++;
 		$("#losses").html("Losses: " + losses);
-
-		
-
+		reset();
 		}
 	});//END OF FUNCTION
 
