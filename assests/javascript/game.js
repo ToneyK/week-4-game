@@ -6,11 +6,10 @@ var losses = 0;
 //current user value
 var userValue = 0;
 
-function reset (){
-	targetNumber();
-	crystalValue();
-}
-
+//function reset (){
+// 	var computerRandomNumber = Math.floor((Math.random() * 100) + 20);
+// 	$("#computerRandom").html("Number to Guess: " + computerRandomNumber);
+// };
 
 $(function targetNumber() {
 	//computer random number
@@ -33,14 +32,12 @@ $(function targetNumber() {
 		if (userValue === computerRandomNumber) {
 			wins++;
 			$("#wins").html("Wins: " + wins);
-			reset();
 		}
 
 		//losses are update to html
 		if(userValue>computerRandomNumber){
 			losses++;
 		$("#losses").html("Losses: " + losses);
-		reset();
 		}
 	});//END OF FUNCTION
 
