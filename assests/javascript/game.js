@@ -1,15 +1,15 @@
 $(function () {
 
-//VARIABLES
-var computerRandomNumber;
-//wins
-var wins = 0;
-//losses
-var losses = 0;
-//current user value
-var userValue = 0;
+	//VARIABLES
+	var computerRandomNumber;
+	//wins
+	var wins = 0;
+	//losses
+	var losses = 0;
+	//current user value
+	var userValue = 0;
 
-	function reset (){
+	function reset() {
 		targetNumber();
 		newCrystalValues();
 		userValue = 0;
@@ -24,18 +24,8 @@ var userValue = 0;
 
 	targetNumber();
 
-	// var names = ["Toney", "Manny"];
-	// var ages = [27, 30];
-	// function printStats(name, age) {
-	// 	console.log(name + " is " + age + " years old.")
-	// }
-  //
-	// printStats(names[1], ages[1]);
-
-
-
 	//value for each click of crystal
-	function newCrystalValues () {
+	function newCrystalValues() {
 		$("img").each(function () {
 			$(this).attr("data-value", Math.floor((Math.random() * 11) + 1));
 			console.log(this)
@@ -43,8 +33,6 @@ var userValue = 0;
 	}; // END OF newCrystalValues FUNCTION
 
 	newCrystalValues();
-
-
 
 	//on click for userValue
 	$("img").on("click", function () {
@@ -66,30 +54,5 @@ var userValue = 0;
 			reset();
 		}
 	});//END OF CLICK FUNCTION TO COMPARE CRYSTAL VALUES
-
-
-
-	//functions
-	//clicks on crystals
-	//adding up user value
-	//displaying user value
-	//reset defaults
-
-	//conditionals
-	//if user value > computer value then lose
-
-	//if user value = computer value then win
-
-
-
-
-
-
-
-	//if (result === randomNumber) {
-	// 	wins++;
-	// 	$("#win-lose").html("<h2>Winner!</h2>");
-	// 	$("#wins").html("<h3>" + wins + "</h3>");
-	// }
 
 }); // END READY
